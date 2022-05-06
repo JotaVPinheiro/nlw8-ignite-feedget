@@ -20,7 +20,7 @@ export function Widget() {
         
         <span 
           className='max-w-0 overflow-hidden group-hover:max-w-xs transition-all 
-            duration-500 ease-out'
+            duration-500 ease-linear'
         >
           <span className='pl-2'>Feedback</span>
         </span>
