@@ -28,6 +28,7 @@ export const styles = StyleSheet.create({
     marginRight: 8
   },
   input: {
+    minWidth: '100%',
     height: 112,
     padding: 12,
     marginBottom: 8,
