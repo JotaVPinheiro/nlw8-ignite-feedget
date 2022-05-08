@@ -5,15 +5,18 @@ import {
   TouchableOpacityProps,
   ActivityIndicator,
 } from 'react-native';
-import { theme } from '../../../theme';
 
 import { styles } from './styles';
+import { theme } from '../../../theme';
 
 interface Props extends TouchableOpacityProps {
   isLoading: boolean
 }
 
-export function SubmitButton({ isLoading, ...rest }: Props) {
+export function SubmitButton({ 
+  isLoading, 
+  ...rest 
+}: Props) {
   return (
     <TouchableOpacity
       style={styles.container}
@@ -22,7 +25,7 @@ export function SubmitButton({ isLoading, ...rest }: Props) {
       {
         isLoading
           ? <ActivityIndicator color={theme.colors.text_on_brand_color} />
-          : <Text style={styles.title} >Enviar feedback</Text>
+          : <Text style={styles.title}>Enviar feedback</Text>
       }
     </TouchableOpacity>
   );

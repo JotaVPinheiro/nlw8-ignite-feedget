@@ -1,13 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Copyright } from '../Copyright';
-
-import { feedbackTypes } from '../../utils/feedbackTypes';
-
-import { FeedbackType } from '../Widget';
 
 import { styles } from './styles';
+import { FeedbackType } from '../Widget';
+import { feedbackTypes } from '../../utils/feedbackTypes';
+
 import { Option } from '../Option';
+import { Copyright } from '../Copyright';
 
 interface Props {
   onFeedbackTypeChanged: (feedbackType: FeedbackType) => void

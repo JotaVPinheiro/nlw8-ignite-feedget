@@ -15,6 +15,7 @@ export class SubmitFeedbackUseCase {
 
   async execute(request: SubmitFeedbackUseCaseRequest) {
     const { type, comment, screenshot } = request
+    console.log(screenshot)
 
     if(!type)
       throw new Error('Type is required')
@@ -33,6 +34,8 @@ export class SubmitFeedbackUseCase {
         `<div style='font-family: sans-serif; font-size: 16px; color:#111'>`,
         `<p>Tipo do feedback: ${type}</p>`,
         `<p>Comentário: ${comment}</p>`,
+        `<p>Screenshot:</p>`,
+        `<img src="${screenshot}" />`,
         `</div>`
       ].join('\n')
     })

@@ -1,7 +1,4 @@
 import React from 'react';
-
-import successImg from "../../assets/success.png";
-
 import { 
   View,
   Image,
@@ -10,6 +7,8 @@ import {
 } from 'react-native';
 
 import { styles } from './styles';
+import successImg from "../../assets/success.png";
+
 import { Copyright } from '../Copyright';
 
 interface Props {

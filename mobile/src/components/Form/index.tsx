@@ -1,4 +1,3 @@
-import { ArrowLeft } from 'phosphor-react-native';
 import React, { useState } from 'react';
 import {
   View, 
@@ -7,15 +6,18 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
+import { ArrowLeft } from 'phosphor-react-native';
 import { captureScreen } from "react-native-view-shot";
+import * as FileSystem from "expo-file-system";
+
+import { styles } from './styles';
 import { theme } from '../../theme';
 import { feedbackTypes } from '../../utils/feedbackTypes';
 import { FeedbackType } from '../Widget';
+import { api } from '../../libs/api';
+
 import { ScreenshotButton } from './ScreenshotButton';
 import { SubmitButton } from './SubmitButton';
-import * as FileSystem from "expo-file-system";
-import { styles } from './styles';
-import { api } from '../../libs/api';
 
 interface Props {
   feedbackType: FeedbackType
@@ -53,7 +55,9 @@ export function Form({
 
     setIsSendingFeedback(true)
 
-    const screenshotBase64 = screenshot && await FileSystem.readAsStringAsync(screenshot, { encoding: 'base64' })
+    const screenshotBase64 = 
+      screenshot 
+      && await FileSystem.readAsStringAsync(screenshot, { encoding: 'base64' })
 
     try {
       await api.post('/feedbacks', {
@@ -72,7 +76,9 @@ export function Form({
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={onFeedbackCanceled}>
+        <TouchableOpacity
+          onPress={onFeedbackCanceled}
+        >
           <ArrowLeft 
             size={24}
             weight='bold'

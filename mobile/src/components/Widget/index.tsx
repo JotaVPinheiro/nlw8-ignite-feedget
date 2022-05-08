@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { TouchableOpacity, Text } from 'react-native';
-import { ChatTeardropDots } from "phosphor-react-native";
+import { TouchableOpacity } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from "react-native-gesture-handler";
+import { ChatTeardropDots } from "phosphor-react-native";
 
 import { styles } from './styles';
 import { theme } from '../../theme';
 import { feedbackTypes } from '../../utils/feedbackTypes';
+
 import { Form } from '../Form';
 import { Success } from '../Success';
 import { Options } from '../Options';
@@ -54,10 +55,11 @@ function Widget() {
         {
           feedbackSent
           ?
-            <Success onSendAnotherFeedback={handleRestartFeedback}/>
+            <Success
+              onSendAnotherFeedback={handleRestartFeedback}
+            />
           :
-            <>
-              {
+            <>{
                 feedbackType
                 ?
                   <Form 
@@ -66,9 +68,10 @@ function Widget() {
                     onFeedbackSent={handleFeedbackSent}
                   />
                 :
-                  <Options onFeedbackTypeChanged={setFeedbackType}/>
-              }
-            </>
+                  <Options
+                    onFeedbackTypeChanged={setFeedbackType}
+                  />
+            }</>
         }
       </BottomSheet>
     </>
